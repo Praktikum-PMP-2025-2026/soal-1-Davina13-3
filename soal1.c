@@ -7,32 +7,44 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-int main(){
+int main (){
     char str[100];
     printf("");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0; 
 
-    char hasil[100];
-    int j = 0;
-    int b = 0;
+    int len = strlen(str);
+    char *result = (char *)malloc(len + 1); 
+    if (result == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        return 1;
+    }
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    int j = 0; // Indeks untuk result
+    int b = 0; // Untuk  keseimbangan tanda kurung
+
+    for (int i = 0; i < len; i++) {
         if (str[i] == '(') {
             b++;
-            hasil[j++] = str[i];
+            result[j++] = str[i]; 
         } else if (str[i] == ')') {
-            if (b > 0) {
+            if (b > 0) { 
                 b--;
-                hasil[j++] = str[i];
+                result[j++] = str[i];
             }
         } else {
-            hasil[j++] = str[i];
+            result[j++] = str[i]; 
         }
     }
-    hasil[j] = '\0'; 
-    printf("%s\n", hasil); 
+    result[j] = '\0'; 
+
+    printf("%s\n", result);
+    
+    free(result); 
     return 0;
 }
+
+
