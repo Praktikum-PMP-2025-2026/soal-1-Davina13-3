@@ -10,31 +10,30 @@
 #include <string.h>
 
 int main (){
-    char str [100];
+    char str[100];
     printf("");
-    fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = '\0';
+    gets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = 0; // Menghapus newline yang dihasilkan oleh fgets
 
-    int len = strlen(str);
-    char hasil [100];
-    int i = 0, j = 0, b = 0;
+    char result[100];
+    int j = 0;
+    int balance = 0;
 
-    for (i = 0; i < len; i++){
-        if(str[i] == '('){
-            b++;
-            hasil[j++] = str[i];
-        }
-        else if (str[i] == ')'){
-            if(b > 0){
-                b--;
-                hasil[j++] = str[i];
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '(') {
+            balance++;
+            result[j++] = str[i];
+        } else if (str[i] == ')') {
+            if (balance > 0) {
+                balance--;
+                result[j++] = str[i];
             }
-        }
-        else{
-            hasil[j++] = str[i];
+        } else {
+            result[j++] = str[i];
         }
     }
-    hasil[j] ='\0';
-    printf("%s\n", hasil);
+    result[j] = '\0'; 
+
+    printf("%s\n", result);
     return 0;
 }
