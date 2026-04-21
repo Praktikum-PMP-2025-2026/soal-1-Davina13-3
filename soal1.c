@@ -33,6 +33,6 @@ int main (){
         }
     }
     hasil[j] = '\0';
-    printf("%s", hasil);
+    printf("%s\n", hasil);
     return 0;
 }
