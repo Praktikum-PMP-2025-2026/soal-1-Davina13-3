@@ -9,34 +9,30 @@
  #include <stdio.h>
  #include <string.h>
 
-int main (){
+int main (){ 
+
     char str [100];
     printf("");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    int len = strlen(str);
+    int int len = strlen(str);
     char hasil [100];
     int i = 0, j = 0, b = 0;
-
-
     for (i = 0; i < len; i++){
-        if(str[i] == '('){
+        if (str[i] == '('){
             b++;
             hasil[j++] = str[i];
-        }
-        else if (str[i] == ')'){
-            if(b > 0){
+        } else if (str[i] == ')'){
+            if (b > 0){
                 b--;
                 hasil[j++] = str[i];
-        }
-        else{
-            hasil[j++] = str[i];
             }
+        } else {
+            hasil[j++] = str[i];
         }
-
-    hasil[j] ='\0';   
-
-    printf("%s", hasil); 
+    }
+    hasil[j] = '\0';
+    printf("%s", hasil);
     return 0;
 }
