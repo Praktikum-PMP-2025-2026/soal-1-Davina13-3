@@ -5,11 +5,10 @@
  *   Nama File           : soal1.c
  *   Deskripsi           : Program untuk memulihkan naskah kuno yang rusak dengan menghapus simbol kurung agar struktur teks kembali valid, tanpa mengubah urutan karakternya.
  */
-
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+int main (){
     char str[100];
     printf("");
     fgets(str, sizeof(str), stdin);
