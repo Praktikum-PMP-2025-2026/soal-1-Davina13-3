@@ -16,7 +16,7 @@ int main (){
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    int int len = strlen(str);
+    int len = strlen(str);
     char hasil [100];
     int i = 0, j = 0, b = 0;
     for (i = 0; i < len; i++){
