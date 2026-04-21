@@ -8,37 +8,33 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
 int main (){
-    char *str = malloc(100 * sizeof(char));
-
+    char str [100];
     printf("");
-    fgets(str, 100, stdin);
-    str[strcspn(str, "\n")] = '\0'; 
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = '\0';
 
-    int len = strlen(str); 
+    int len = strlen(str);
+    char hasil [100];
+    int i = 0, j = 0, b = 0;
 
-    char *hasil = malloc(100 * sizeof(char));
-    int j = 0;
-    int b = 0;
-
-    for (int i = 0; i < len; i++) {
-        if (str[i] == '(') {
+    for (i = 0; i < len; i++){
+        if(str[i] == '('){
             b++;
-            hasil[i++] = str[i];
-        } else if (str[i] == ')') {
-            if (b > 0) {
+            hasil[j++] = str[i];
+        }
+        else if (str[i] == ')'){
+            if(b > 0){
                 b--;
-                hasil[i++] = str[i];
+                hasil[j++] = str[i];
             }
-        } else {
-            hasil[i++] = str[i];
+        }
+        else{
+            hasil[j++] = str[i];
         }
     }
-    hasil[j] = '\0';
-
+    hasil[j] ='\0';
     printf("%s\n", hasil);
-
     return 0;
 }
