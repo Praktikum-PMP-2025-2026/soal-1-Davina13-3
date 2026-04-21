@@ -20,7 +20,7 @@ int main (){
     int len = strlen(str); 
 
     char *hasil = malloc(100 * sizeof(char));
-    int i = 0;
+    int j = 0;
     int b = 0;
 
     for (int i = 0; i < len; i++) {
@@ -36,7 +36,7 @@ int main (){
             hasil[i++] = str[i];
         }
     }
-    hasil[i] = '\0';
+    hasil[j] = '\0';
 
     printf("%s\n", hasil);
 
